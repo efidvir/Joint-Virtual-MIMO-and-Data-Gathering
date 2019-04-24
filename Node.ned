@@ -18,4 +18,17 @@
 //
 simple Node
 {
+     parameters:
+		int node_number;
+		int X_location @units (m);
+		int Y_location @units (m);
+		int maximum_communication_range @units (m);
+		int packet_size @units (B);
+		int transmission_power  @units (dBm);
+		int gamma;
+    	//@display("bgb=341,235");
+
+    gates:
+        inout in_out;	
+        
 }
