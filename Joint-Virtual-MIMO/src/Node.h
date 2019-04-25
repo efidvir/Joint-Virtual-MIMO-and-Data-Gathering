@@ -13,22 +13,21 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#include "Node.h"
+#ifndef __JOINT_VIRTUAL_MIMO_NODE_H_
+#define __JOINT_VIRTUAL_MIMO_NODE_H_
 
-Define_Module(Node);
+#include <omnetpp.h>
 
-void Node::initialize()
+using namespace omnetpp;
+
+/**
+ * TODO - Generated class
+ */
+class Node : public cSimpleModule
 {
-    int X_area = par("X_area_size");
-    int Y_area = par("Y_area_size");
-    int X_location = uniform(0,X_area);
-    int Y_location = uniform(0,Y_area);
-   // char display_string = "p="+(char)X_location+","+(char)Y_location+";i=old/x_blank";
-   // @display(display_string);
-    // TODO - Generated method body
-}
+  protected:
+    virtual void initialize();
+    virtual void handleMessage(cMessage *msg);
+};
 
-void Node::handleMessage(cMessage *msg)
-{
-    // TODO - Generated method body
-}
+#endif

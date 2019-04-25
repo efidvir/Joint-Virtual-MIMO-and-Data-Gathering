@@ -13,11 +13,24 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package joint_virtual_mimo_and_data_gathering_for_wireless_sensor_networks;
+package joint_virtual_mimo;
 
 //
 // TODO auto-generated module
 //
 simple Node
 {
+     parameters:
+		int node_number;
+		int X_location @units (m);
+		int Y_location @units (m);
+		int maximum_communication_range @units (m);
+		int packet_size @units (B);
+		int transmission_power  @units (dBm);
+		int gamma;
+    	
+
+    gates:
+        inout in_out;	
+        
 }

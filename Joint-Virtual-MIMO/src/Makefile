@@ -1,12 +1,12 @@
 #
-# OMNeT++/OMNEST Makefile for Joint-Virtual-MIMO-and-Data-Gathering-for-Wireless-Sensor-Networks
+# OMNeT++/OMNEST Makefile for Joint-Virtual-MIMO
 #
 # This file was generated with the command:
 #  opp_makemake -f --deep
 #
 
 # Name of target to be created (-o option)
-TARGET = Joint-Virtual-MIMO-and-Data-Gathering-for-Wireless-Sensor-Networks$(D)$(EXE_SUFFIX)
+TARGET = Joint-Virtual-MIMO$(D)$(EXE_SUFFIX)
 TARGET_DIR = .
 
 # User interface (uncomment one) (-u option)
