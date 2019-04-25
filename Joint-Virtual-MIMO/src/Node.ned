@@ -29,6 +29,7 @@ simple Node
 		double transmission_power  @units (dBm) = default(0);
 		double gamma = default(0.1);
 		@networkNode;
+		@signal[transmission_power](type=long);
         @labels(node,ethernet-node,wireless-node);
     	
 

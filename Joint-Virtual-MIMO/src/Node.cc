@@ -19,12 +19,17 @@ Define_Module(Node);
 
 void Node::initialize()
 {
+    cQueue queue("queue");
+    simsignal_t lengthSignalId = registerSignal("length");
+    const char *signalName = getSignalName(lengthSignalId); // --> "length"
     cDisplayString &display = getParentModule()->getDisplayString();
-    int X_area = par("X_area_size");
-    int Y_area = par("Y_area_size");
+    int X_area = 1000;//par("X_area");
+    int Y_area = 1000;//par("Y_area");
     int X_location = uniform(0,X_area);
     int Y_location = uniform(0,Y_area);
-    display.parse("p=49,35;i=old/x_blank");
+    //display.parse("p=49,35;i=old/x_blank");
+    EV<<"emmiting"<<endl;
+    emit(lengthSignalId, queue.length());
     //char display_string = "p="+(char)X_location+","+(char)Y_location+";i=old/x_blank";
     //@display(display_string);
     // TODO - Generated method body
