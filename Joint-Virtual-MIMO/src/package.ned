@@ -3,7 +3,26 @@ package joint_virtual_mimo;
 @license(LGPL);
 
 import ned.DatarateChannel;
+import inet.node.inet.INetworkNode;
 
+moduleinterface IIntegratedVisualizer
+{
+    parameters:
+        @display("i=block/app");
+}
+moduleinterface IRadioMedium
+{
+    parameters:
+        @display("i=misc/sun");
+        @signal[radioAdded](type=cModule);    // (type=IRadio)
+        @signal[radioRemoved](type=cModule);    // (type=IRadio)
+        @signal[signalAdded](type=cObject);    // (type=ITransmission)
+        @signal[signalRemoved](type=cObject);    // (type=ITransmission)
+        @signal[signalDepartureStarted](type=cObject);    // (type=ITransmission)
+        @signal[signalDepartureEnded](type=cObject);    // (type=ITransmission)
+        @signal[signalArrivalStarted](type=cObject);    // (type=IReception)
+        @signal[signalArrivalEnded](type=cObject);    // (type=IReception)
+}
 network Network
 {
     parameters:

@@ -21,16 +21,18 @@ package joint_virtual_mimo;
 simple Node
 {
      parameters:
-		int node_number;
-		int X_location @units (m);
-		int Y_location @units (m);
-		int maximum_communication_range @units (m);
-		int packet_size @units (B);
-		int transmission_power  @units (dBm);
-		int gamma;
+		//int node_number = this.indexOf(Node);
+		double X_location @units (m) = default(uniform(0,1000));
+		double Y_location @units (m) = default(uniform(0,1000));
+		double maximum_communication_range @units (m) = default(200);
+		double packet_size @units (B) = default(30);
+		double transmission_power  @units (dBm) = default(0);
+		double gamma = default(0.1);
+		@networkNode;
+        @labels(node,ethernet-node,wireless-node);
     	
 
-    gates:
-        inout in_out;	
+  // gates:
+    //    inout in_out[100];	
         
 }

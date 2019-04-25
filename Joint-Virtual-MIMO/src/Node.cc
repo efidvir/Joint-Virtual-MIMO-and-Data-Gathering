@@ -19,10 +19,12 @@ Define_Module(Node);
 
 void Node::initialize()
 {
+    cDisplayString &display = getParentModule()->getDisplayString();
     int X_area = par("X_area_size");
     int Y_area = par("Y_area_size");
     int X_location = uniform(0,X_area);
     int Y_location = uniform(0,Y_area);
+    display.parse("p=49,35;i=old/x_blank");
     //char display_string = "p="+(char)X_location+","+(char)Y_location+";i=old/x_blank";
     //@display(display_string);
     // TODO - Generated method body

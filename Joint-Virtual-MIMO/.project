@@ -3,6 +3,7 @@
 	<name>Joint-Virtual-MIMO</name>
 	<comment></comment>
 	<projects>
+		<project>inet</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
