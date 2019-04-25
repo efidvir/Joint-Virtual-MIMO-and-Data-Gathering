@@ -1,0 +1,3 @@
+package joint_virtual_mimo_and_data_gathering_for_wireless_sensor_networks;
+
+@license(LGPL);
