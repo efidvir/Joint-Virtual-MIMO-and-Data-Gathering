@@ -1,4 +1,4 @@
-file 1727 1556303735                                            
+file 1727 1556369910                                            
 version 2
 run Basic-0-20190426-21:35:22-1556
 attr configname Basic
@@ -45,5 +45,4 @@ param **.test_type 1
 vector 0 Network.node.wlan[0].queue queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-0	1716 9 0 0 0 0 1 0 0 0 0
-
+0	1716 11 0 0 0 0 1 0 0 0 0

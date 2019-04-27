@@ -23,10 +23,10 @@ network Network
 
     submodules:
         visualizer: <default("IntegratedCanvasVisualizer")> like IIntegratedVisualizer if hasVisualizer() {
-            @display("p=875.488,469.87198");
+            @display("p=1050,100");
         }
         radioMedium: <default("UnitDiskRadioMedium")> like IRadioMedium {
-            @display("p=881.51196,614.448");
+            @display("p=1050,200");
         }
 
         node: Node {

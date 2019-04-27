@@ -14,6 +14,8 @@
 // 
 //204710990
 #include "Node.h"
+#include <string.h>
+#include <iostream>
 
 Define_Module(Node);
 
@@ -22,17 +24,20 @@ void Node::initialize()
     cQueue queue("queue");
     simsignal_t lengthSignalId = registerSignal("length");
     const char *signalName = getSignalName(lengthSignalId); // --> "length"
-    cDisplayString &display = getParentModule()->getDisplayString();
-    int X_area = 1000;//par("X_area");
-    int Y_area = 1000;//par("Y_area");
-    int X_location = uniform(0,X_area);
-    int Y_location = uniform(0,Y_area);
-    //display.parse("p=49,35;i=old/x_blank");
-    EV<<"emmiting"<<endl;
+
+    double X_area = 1000;//par("X_area");
+    double Y_area = 1000;//par("Y_area");
+    double X_location = uniform(0,X_area);
+    double Y_location = uniform(0,Y_area);
+
+    //Set display as random position
+    cDisplayString dispstr("p=;i=old/x_blank");
+    dispstr.setTagArg("p",0,X_location);
+    dispstr.setTagArg("p",1,Y_location);
+    setDisplayString(dispstr);
+
     emit(lengthSignalId, queue.length());
-    //char display_string = "p="+(char)X_location+","+(char)Y_location+";i=old/x_blank";
-    //@display(display_string);
-    // TODO - Generated method body
+
     cPacket *msg = new cPacket("msg");
     scheduleAt(simTime() + 1, msg);
 }
@@ -45,7 +50,10 @@ void Node::handleMessage(cMessage *msg)
          delete msg;
          cPacket *msg = new cPacket("msg");
          emit(lengthSignalId, msg);
+         EV<<"emmiting"<<endl;
          scheduleAt(simTime() + 1, msg);
 
      }
+     else
+         delete msg;
 }
