@@ -12,7 +12,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
-
+//204710990
 #include "Node.h"
 
 Define_Module(Node);
@@ -33,9 +33,19 @@ void Node::initialize()
     //char display_string = "p="+(char)X_location+","+(char)Y_location+";i=old/x_blank";
     //@display(display_string);
     // TODO - Generated method body
+    cPacket *msg = new cPacket("msg");
+    scheduleAt(simTime() + 1, msg);
 }
 
 void Node::handleMessage(cMessage *msg)
 {
-    // TODO - Generated method body
+    simsignal_t lengthSignalId = registerSignal("length");
+    /*Its time to send a new message*/
+     if (msg->isSelfMessage()){
+         delete msg;
+         cPacket *msg = new cPacket("msg");
+         emit(lengthSignalId, msg);
+         scheduleAt(simTime() + 1, msg);
+
+     }
 }
