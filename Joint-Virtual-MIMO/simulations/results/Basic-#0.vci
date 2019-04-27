@@ -1,0 +1,49 @@
+file 1727 1556303735                                            
+version 2
+run Basic-0-20190426-21:35:22-1556
+attr configname Basic
+attr datetime 20190426-21:35:22
+attr experiment Basic
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network joint_virtual_mimo.Network
+attr processid 1556
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.node*.ipv4.arp.typename "\"GlobalArp\""
+param *.nodeA.numApps 1
+param *.nodeA.app[0].typename "\"UdpBasicApp\""
+param *.nodeA.app[0].destAddresses "\"nodeB\""
+param *.nodeA.app[0].destPort 5000
+param *.nodeA.app[0].messageLength 1024B
+param *.nodeA.app[0].sendInterval exponential(12ms)
+param *.nodeA.app[0].packetName "\"UDPData\""
+param *.nodeB.numApps 1
+param *.nodeB.app[0].typename "\"UdpSink\""
+param *.nodeB.app[0].localPort 5000
+param *.node*.wlan[0].typename "\"AckingWirelessInterface\""
+param *.node*.wlan[0].mac.useAck false
+param *.node*.wlan[0].mac.fullDuplex false
+param *.node*.wlan[0].radio.transmitter.communicationRange 250m
+param *.nodeA.wlan[0].radio.displayCommunicationRange true
+param *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+param *.visualizer.mediumVisualizer.displaySignals true
+param *.visualizer.physicalLinkVisualizer.displayLinks true
+param *.visualizer.physicalLinkVisualizer.packetFilter "\"UDPData*\""
+param *.node*.wlan[0].radio.receiver.ignoreInterference true
+param *.nodeR1.wlan[0].radio.displayCommunicationRange true
+param *.node*.**.bitrate 1Mbps
+param **.X_area 1000
+param **.Y_area 1000
+param **.test_type 1
+
+vector 0 Network.node.wlan[0].queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+0	1716 9 0 0 0 0 1 0 0 0 0
+

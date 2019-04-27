@@ -22,13 +22,13 @@ network Network
         @display("bgb=1000,1000;bgu=m;bgl=2");
 
     submodules:
-          visualizer: <default("IntegratedCanvasVisualizer")> like IIntegratedVisualizer if hasVisualizer() {
-            @display("p=580,125");
+        visualizer: <default("IntegratedCanvasVisualizer")> like IIntegratedVisualizer if hasVisualizer() {
+            @display("p=875.488,469.87198");
         }
         radioMedium: <default("UnitDiskRadioMedium")> like IRadioMedium {
-            @display("p=580,275");
+            @display("p=881.51196,614.448");
         }
-        
+
         node: Node {
             @display("p=49,35;i=old/x_blank");
         }
