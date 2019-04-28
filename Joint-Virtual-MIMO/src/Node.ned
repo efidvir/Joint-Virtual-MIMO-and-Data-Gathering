@@ -14,11 +14,13 @@
 // 
 
 package joint_virtual_mimo;
-
+import inet.node.inet.INetworkNode;
+import inet.node.inet.*;
+import inet.node.inet.WirelessHost;
 //
 // TODO auto-generated module
 //
-simple Node
+module Node extends WirelessHost
 {
      parameters:
 		//int node_number = this.indexOf(Node);
@@ -31,8 +33,8 @@ simple Node
 		@networkNode;
 		@signal[transmission_power](type=long);
         @labels(node,ethernet-node,wireless-node);
-    	
-
+    	@signal[lengthSignalId](type=cPacket);
+		@class(Node);
   // gates:
     //    inout in_out[100];	
         

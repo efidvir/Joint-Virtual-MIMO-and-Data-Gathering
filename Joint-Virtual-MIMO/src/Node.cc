@@ -12,7 +12,6 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
-//204710990
 #include "Node.h"
 #include <string.h>
 #include <iostream>
@@ -21,9 +20,9 @@ Define_Module(Node);
 
 void Node::initialize()
 {
-    cQueue queue("queue");
-    simsignal_t lengthSignalId = registerSignal("length");
-    const char *signalName = getSignalName(lengthSignalId); // --> "length"
+    //cQueue queue("queue");
+    //simsignal_t lengthSignalId = registerSignal("length");
+    //const char *signalName = getSignalName(lengthSignalId); // --> "length"
 
     double X_area = 1000;//par("X_area");
     double Y_area = 1000;//par("Y_area");
@@ -35,25 +34,28 @@ void Node::initialize()
     dispstr.setTagArg("p",0,X_location);
     dispstr.setTagArg("p",1,Y_location);
     setDisplayString(dispstr);
+    //emit(lengthSignalId, 1);
 
-    emit(lengthSignalId, queue.length());
-
-    cPacket *msg = new cPacket("msg");
-    scheduleAt(simTime() + 1, msg);
+    //cPacket *msg = new cPacket("msg");
+    //scheduleAt(simTime() + 1, msg);
+    //cIListener *listener = ...;
+    //subscribe("length", listener);
 }
 
 void Node::handleMessage(cMessage *msg)
 {
-    simsignal_t lengthSignalId = registerSignal("length");
+   // simsignal_t lengthSignalId = registerSignal("length");
     /*Its time to send a new message*/
-     if (msg->isSelfMessage()){
-         delete msg;
-         cPacket *msg = new cPacket("msg");
-         emit(lengthSignalId, msg);
-         EV<<"emmiting"<<endl;
-         scheduleAt(simTime() + 1, msg);
+     //if (msg->isSelfMessage()){
+       //  delete msg;
+     //    cPacket *msg = new cPacket("msg");
+     //    emit(lengthSignalId, 1);
 
-     }
-     else
-         delete msg;
+      //   EV<<"emmiting"<<endl;
+        //scheduleAt(simTime() + 1, msg);
+
+   //  }
+   //  else
+    //     delete msg;
+
 }

@@ -10,9 +10,6 @@ import inet.networklayer.configurator.ipv4.*;
 import inet.physicallayer.unitdisk.*;
 import inet.physicallayer.contract.packetlevel.*;
 
-
-
-
 network Network
 {
     parameters:
@@ -25,8 +22,11 @@ network Network
         visualizer: <default("IntegratedCanvasVisualizer")> like IIntegratedVisualizer if hasVisualizer() {
             @display("p=1050,100");
         }
-        radioMedium: <default("UnitDiskRadioMedium")> like IRadioMedium {
+         configurator: Ipv4NetworkConfigurator {
             @display("p=1050,200");
+        }
+        radioMedium: <default("UnitDiskRadioMedium")> like IRadioMedium {
+            @display("p=1050,300");
         }
 
         node: Node {
