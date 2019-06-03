@@ -15,9 +15,11 @@
 #include "Node.h"
 #include <string.h>
 #include <iostream>
+#include "cInitListener.h"
 
 Define_Module(Node);
-
+double x_coor = 0;
+simsignal_t initSignal;
 void Node::initialize()
 {
     //cQueue queue("queue");
@@ -28,34 +30,47 @@ void Node::initialize()
     double Y_area = 1000;//par("Y_area");
     double X_location = uniform(0,X_area);
     double Y_location = uniform(0,Y_area);
-
+    x_coor = X_location;
     //Set display as random position
     cDisplayString dispstr("p=;i=old/x_blank");
     dispstr.setTagArg("p",0,X_location);
     dispstr.setTagArg("p",1,Y_location);
     setDisplayString(dispstr);
     //emit(lengthSignalId, 1);
+    initSignal = registerSignal("initSignalId");
 
-    //cPacket *msg = new cPacket("msg");
-    //scheduleAt(simTime() + 1, msg);
-    //cIListener *listener = ...;
-    //subscribe("length", listener);
+    cPacket *msg = new cPacket("msg");
+    scheduleAt(simTime() + getId(), msg);
+
+    cInitListener *listener = new cInitListener();
+
+    subscribe("initSignalId", listener);
+
 }
 
 void Node::handleMessage(cMessage *msg)
 {
-   // simsignal_t lengthSignalId = registerSignal("length");
+
     /*Its time to send a new message*/
-     //if (msg->isSelfMessage()){
-       //  delete msg;
-     //    cPacket *msg = new cPacket("msg");
-     //    emit(lengthSignalId, 1);
+     if (msg->isSelfMessage()){
+         delete msg;
 
-      //   EV<<"emmiting"<<endl;
-        //scheduleAt(simTime() + 1, msg);
+         emit(initSignal, (double)getId());
 
-   //  }
-   //  else
-    //     delete msg;
+         EV<<"emitted"<<endl;
+
+         //scheduleAt(simTime() + 1, msg);
+
+     }
+     else
+     {
+         EV<<"Not selfMsg"<<endl;
+         delete msg;
+
+     }
 
 }
+
+
+
+

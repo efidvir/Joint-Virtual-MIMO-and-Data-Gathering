@@ -16,19 +16,19 @@ network Network
         int X_area @units(m) = default(1000); //par("X_area_size");
         int Y_area @units(m) = default(1000); //par("Y_area_size");
         int test = default(1);//par("test_type");
-        @display("bgb=1000,1000;bgu=m;bgl=2");
-
+        @display("bgb=1327.288,999.98395;bgu=m;bgl=2");
+		@signal[initSignalId](type=double);
     submodules:
         visualizer: <default("IntegratedCanvasVisualizer")> like IIntegratedVisualizer if hasVisualizer() {
             @display("p=1050,100");
         }
-         configurator: Ipv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=1050,200");
         }
         radioMedium: <default("UnitDiskRadioMedium")> like IRadioMedium {
             @display("p=1050,300");
         }
-
+        		
         node: Node {
             @display("p=49,35;i=old/x_blank");
         }

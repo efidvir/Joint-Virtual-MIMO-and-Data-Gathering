@@ -31,6 +31,8 @@ module Node extends WirelessHost
 		double transmission_power  @units (dBm) = default(0);
 		double gamma = default(0.1);
 		@networkNode;
+		@signal[initSignalId](type=double);
+		
 		@signal[transmission_power](type=long);
         @labels(node,ethernet-node,wireless-node);
     	@signal[lengthSignalId](type=cPacket);
